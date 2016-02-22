@@ -1,0 +1,35 @@
+FUNCTION 859999 Description  "客户资料一般查询"  reqlevel 2
+/* 输入：操作员，客户号，客户类，客户状态，开户操作员，是否包含销户客户，是否包含冻结客户,组织机构代码，合作机构代码，客户性质，生成合计,是否交易限制查询 ,交易中心 */
+INPUT:SCUST_NO,SHOLDER_AC_NO,SSERIAL1,SSTATUS1,SCUST_NO2,SSTATUS2,SSTATUS3,SNAME2,SBANKNAME,SSTATUS0,SSTATUS4,semp_no2,SORDER1
+/* 输出：客户号，客户名称，客户全称，证件类型，证件号码，邮编，地址，电话，手机，传真，电子邮件，法人，法人证件，合同编号，客户类，类内资金共享，开户日期，销户日期，客户性质，指令下达人1，指令下达人身份证号1，指令下达人2，指令下达人身份证号2，指令下达人3，指令下达人身份证号3，资金调拨人1，资金调拨人身份证号1，资金调拨人2，资金调拨人身份证号2，备注，客户状态，设置情况，开户操作员，销户操作员,组织机构代码，组织机构简称，合作机构代码，合作机构简称，经纪人代码,交易中心 */
+OUTPUT:SHOLDER_AC_NO,SNAME,SALL_NAME,SCUST_TYPE2,SCERT_NO,SPOST_CODE,SADDR,SPHONE,SPHONE3,SPHONE2,SEMAIL,SCUST_AUTH2,SCUST_LIMIT2,SBANKNAME2,SSERIAL1,SSTATUS2,SDATE0,SDATE1,SSTATUS1,SCUST_AUTH,SCUST_LIMIT,SPAGER,SCARD0,SSTATION1,SCARD1,SCERT_NO2,SBANK_ACC,SCERT_ADDR,SBANK_ACC2,SNOTE,SSTATUS3,SEMP_NO,SCUST_NO,SCUST_NO2,SNAME2,SCUSTTYPES,SBANKNAME,SSECTYPES,VSVARSTR1,SORDER1
+
+FUNCTION 860000 Description "客户风控规则查询" reqlevel 2
+/* 输入：操作员，客户号，风控类别，风控类型 */
+INPUT:SCUST_NO,SHOLDER_AC_NO,SSERIAL0,SSERIAL1
+/*输出：客户号，风控类别，风控类型，参数值*/
+OUTPUT:SHOLDER_AC_NO,SSERIAL0,SSERIAL1,SSECTYPES
+
+FUNCTION 860001 Description "客户风控规则设置" reqlevel 2
+/* 输入：操作员，操作标志，客户号，风控类别，风控类型，参数值*/
+INPUT:SCUST_NO,SSTATUS0,SHOLDER_AC_NO,SSERIAL0,SSERIAL1,SSECTYPES
+/*输出：*/
+OUTPUT:
+
+FUNCTION 860002 Description "客户风控最大更新序号查询" reqlevel 2
+/* 输入：操作员，客户号，风控类别，风控类型 */
+INPUT:SCUST_NO,SHOLDER_AC_NO,SSERIAL0,SSERIAL1
+/*输出：更新序号*/
+OUTPUT:LSERIAL0
+
+FUNCTION 860003 Description "查询操作员SManager权限" reqlevel 2
+/* 输入：查询操作员，操作员，类别，参数值*/
+INPUT:SCUST_NO2, SCUST_NO,SSERIAL0,SSECTYPES
+/*输出：操作员，类别，参数值*/
+OUTPUT:SCUST_NO,SSERIAL0,SSECTYPES
+
+FUNCTION 860004 Description "设置操作员SManager权限" reqlevel 2
+/* 输入：设置操作员，操作标志，操作员，类别，参数值*/
+INPUT:SCUST_NO2,SSTATUS0,SCUST_NO,SSERIAL0,SSECTYPES
+/*输出：*/
+OUTPUT:
